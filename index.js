@@ -1,12 +1,14 @@
 const fs = require('fs');
 const inquirer = require("inquirer");
+//const markDown=require("./utils/api.js");
+const generatePage=require("./utils/generateMarkdown");
 const pressAnyKey = require('press-any-key');
 const util = require("util");
 const writeFileAsync = util.promisify(fs.writeFile);
-const generatePage=require("./utils/generateMarkdown");
 let pageContent="";
 
 init();
+
 
 function init(){
 	console.clear();
@@ -79,6 +81,11 @@ function init(){
 			.catch(function(err) {
 				console.log(err);
 				});
+
+
+
+
+
 		  });
 		}
 
@@ -105,25 +112,25 @@ function validateFunc(input){
 }
 		
 
-// function callbackFunc(res) {
-// 	pageContent = generateMarkdown(res);
+function callbackFunc(res) {
+	pageContent = generateMarkdown(res);
 
-// 	writeFileAsync("READMETEST.md", pageContent)
-// 	.then(function() {
-// 		console.log("\n Successfully wrote to README.md");
-// 		})
-// 	.catch(function(err) {
-// 		console.log(err);
-// 		});
+	writeFileAsync("READMETEST.md", pageContent)
+	.then(function() {
+		console.log("\n Successfully wrote to README.md");
+		})
+	.catch(function(err) {
+		console.log(err);
+		});
 
-// }
+}
 
-// function catchError(err){
-// 	if (err.response.status==404){
-// 		console.log("\n *** GitHub username provided not exist! *** \n")
-// 		pressAnyKeyFunc();
-// 	}
-// }
+function catchError(err){
+	if (err.response.status==404){
+		console.log("\n *** GitHub username provided not exist! *** \n")
+		pressAnyKeyFunc();
+	}
+}
 
 
 
