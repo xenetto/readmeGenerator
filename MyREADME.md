@@ -5,7 +5,7 @@
  
 
 ## Project Title : 
-Homework09 
+Homework09 (Good Readme Generator)
 
 ## Project Description : 
 Create a command-line application that uses input from a user to dynamically generates a good README for a GitHub project. 

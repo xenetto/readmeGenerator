@@ -1,7 +1,5 @@
 const api = require("./api");
 
-
-
 async function generateMarkdown(answers) {
 	let returnFromGit = await api.getUser(answers.username);
 	
@@ -14,7 +12,6 @@ async function generateMarkdown(answers) {
 					`## [Usage](#usage) \n${answers.usage} \n\n` +
 					`## [Credits](#credits) \n${answers.credit} \n\n` +
 					`## [License](#license) \n${answers.license}`;
-
 	return strToWrite;
 }
 
